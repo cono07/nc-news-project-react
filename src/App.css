@@ -1,38 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500&display=swap");
+
 .App {
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  font-family: "Fredoka", sans-serif;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a {
+  text-decoration: none;
+  color: inherit;
+  text-transform: capitalize;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#MainHeader_logo {
+  width: 300px;
+}
+
+.HeaderContainer {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: no-wrap;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.MainNavContainer {
+  display: flex;
+  flex-basis: 60%;
+  align-self: center;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  gap: 50px;
+  margin-right: 20px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.TopicsNavContainer {
+  display: flex;
+  justify-content: space-around;
+  padding-left: 5%;
+  padding-right: 5%;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: rgb(172, 28, 35);
+}
+
+.TopicsNavBar__link {
+  padding: 10px 5%;
+  color: #fff;
+}
+.TopicsNavBar__link:hover {
+  background-color: #fff;
+  color: #000;
+}
+
+@media only screen and (max-width: 600px) {
+  #MainHeader_logo {
+    width: 160px;
   }
-  to {
-    transform: rotate(360deg);
+  .HeaderContainer {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+  }
+  .LogoContainer {
+    flex-basis: 30%;
+  }
+  .MainNavContainer {
+    flex-basis: 70%;
+    justify-content: flex-end;
+    gap: 15px;
+    padding-right: 15px;
+  }
+
+  .TopicsNavContainer {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
