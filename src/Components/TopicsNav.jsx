@@ -14,7 +14,7 @@ const TopicsNav = () => {
 
   return (
     <>
-      <Link to={"/articles"} className="TopicsNavBar__link">
+      <Link to={"/articles/all"} className="TopicsNavBar__link">
         All
       </Link>
       {topicsList.map((topic) => {

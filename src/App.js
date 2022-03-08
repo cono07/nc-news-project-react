@@ -11,7 +11,7 @@ function App() {
         <Route path="*" />
         <Route path="/" element={<ArticleList />} />
         <Route path="/articles" element={<ArticleList />} />
-        <Route path="/articles/:slug_name" element={<ArticleList />} />
+        <Route path="/articles/:topic_name" element={<ArticleList />} />
       </Routes>
     </>
   );
