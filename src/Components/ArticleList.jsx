@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { fetchArticles } from "../api/fetchArticles";
+import * as api from "../utils/api";
 import { ArticleItem } from "./ArticleItem";
 
 export const ArticleList = () => {
@@ -10,7 +10,7 @@ export const ArticleList = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetchArticles(topic_name).then((articles) => {
+    api.fetchArticles(topic_name).then((articles) => {
       setArticlesList(articles);
       setIsLoading(false);
     });

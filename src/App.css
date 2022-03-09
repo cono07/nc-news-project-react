@@ -49,6 +49,8 @@ a {
 .TopicsNavBar__link {
   padding: 10px 5%;
   color: #fff;
+  font-weight: 500;
+  font-size: 1.1rem;
 }
 .TopicsNavBar__link:hover {
   background-color: #fff;
@@ -124,6 +126,10 @@ a {
 
 .ArticleCard_author {
   font-weight: 500;
+}
+.ArticleCard_topic {
+  font-weight: 500;
+  padding-top: 10px;
 }
 
 /* ----------------- Media Queries ------------------------------ */

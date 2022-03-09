@@ -1,16 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { fetchTopics } from "../api/fetchTopics";
+import * as api from "../utils/api";
 
 const TopicsNav = () => {
   const [topicsList, setTopicsList] = useState([]);
 
   useEffect(() => {
-    fetchTopics().then((topics) => {
+    api.fetchTopics().then((topics) => {
       setTopicsList(topics);
     });
   }, []);
-  console.log(topicsList);
 
   return (
     <>

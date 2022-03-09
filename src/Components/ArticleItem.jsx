@@ -9,11 +9,9 @@ export const ArticleItem = ({ article }) => {
       <h2 id="ArticleCard_article-title">{article.title}</h2>
       <dl>
         <dt className="ArticleCard_author">Author: {article.author}</dt>
+        <dt className="ArticleCard_date">{articleDate}</dt>
         <dt className="ArticleCard_topic">{article.topic}</dt>
-        <div className="ArticleCard_date">
-          <dt>{articleDate.date}</dt>
-          <dt>{articleDate.time}</dt>
-        </div>
+        <div></div>
       </dl>
     </article>
   );
