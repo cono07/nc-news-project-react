@@ -11,7 +11,7 @@ export const fetchTopics = () => {
   });
 };
 
-//Get Articles (inc topic queries params)
+//Get All Articles (inc topic queries params)
 export const fetchArticles = (topic_name) => {
   let str = "/articles";
   if (topic_name && topic_name !== "all") {
@@ -19,5 +19,12 @@ export const fetchArticles = (topic_name) => {
   }
   return api.get(str).then(({ data: { articles } }) => {
     return articles;
+  });
+};
+
+//Get Single Article
+export const fetchSingleArticle = (article_id) => {
+  return api.get(`/articles/${article_id}`).then(({ data: { article } }) => {
+    return article;
   });
 };
