@@ -1,11 +1,19 @@
-import { Router } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import "./App.css";
+import { ArticleList } from "./Components/ArticleList";
+import Heading from "./Components/Heading";
 
 function App() {
   return (
-    <Router>
-      <div className="App"></div>;
-    </Router>
+    <>
+      <Heading />
+      <Routes>
+        <Route path="*" />
+        <Route path="/" element={<ArticleList />} />
+        <Route path="/articles" element={<ArticleList />} />
+        <Route path="/articles/:topic_name" element={<ArticleList />} />
+      </Routes>
+    </>
   );
 }
 
