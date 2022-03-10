@@ -38,3 +38,11 @@ export const fetchComments = (article_id) => {
       return comments;
     });
 };
+
+//Get all users
+export const fetchUsers = () => {
+  return api.get("/users").then(({ data: { users } }) => {
+    console.log(users);
+    return users;
+  });
+};
