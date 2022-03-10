@@ -12,7 +12,7 @@ export const CommentsList = ({ article_id }) => {
       setCommentList(comments);
       setIsLoading(false);
     });
-  }, []);
+  }, [article_id]);
 
   return (
     <>
