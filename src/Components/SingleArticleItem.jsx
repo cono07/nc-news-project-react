@@ -1,4 +1,5 @@
 import { formatDate } from "../utils/formatDate";
+import { CommentsList } from "./CommentsList";
 
 export const SingleArticleItem = ({ article }) => {
   const articleDate = formatDate(article.created_at);
@@ -21,6 +22,9 @@ export const SingleArticleItem = ({ article }) => {
       </div>
       <div className="SingleArticleItem_body">
         <p>{article.body}</p>
+      </div>
+      <div className="Comments-container">
+        <CommentsList article_id={article.article_id} />
       </div>
     </main>
   );
