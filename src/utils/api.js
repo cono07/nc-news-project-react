@@ -38,3 +38,12 @@ export const fetchComments = (article_id) => {
       return comments;
     });
 };
+
+//Update vote of article
+export const updateArticleVote = (article_id, vote) => {
+  return api
+    .patch(`articles/${article_id}`, { inc_votes: vote })
+    .then(({ data: { article } }) => {
+      return article.vote;
+    });
+};
