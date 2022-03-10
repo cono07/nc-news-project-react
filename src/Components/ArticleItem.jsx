@@ -6,8 +6,8 @@ export const ArticleItem = ({ article }) => {
   const articleDate = formatDate(date);
 
   return (
-    <Link to={`/article/${article.article_id}`}>
-      <article className="ArticleCard">
+    <article>
+      <Link to={`/article/${article.article_id}`} className="ArticleCard">
         <h2 id="ArticleCard_article-title">{article.title}</h2>
         <dl>
           <dt className="ArticleCard_author">Author: {article.author}</dt>
@@ -15,7 +15,7 @@ export const ArticleItem = ({ article }) => {
           <dt className="ArticleCard_topic">{article.topic}</dt>
           <div></div>
         </dl>
-      </article>
-    </Link>
+      </Link>
+    </article>
   );
 };

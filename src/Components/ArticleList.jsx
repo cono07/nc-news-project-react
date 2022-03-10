@@ -22,7 +22,7 @@ export const ArticleList = () => {
         <h2 id="ArticleList_loading">Loading Articles....</h2>
       ) : (
         <>
-          <main className="ArticleList_main">
+          <main className="ArticleList_main cooking">
             <h1 id="ArticleList_title">{topic_name} Articles</h1>
             <section className="ArticlesGrid">
               {articlesList.map((article) => {

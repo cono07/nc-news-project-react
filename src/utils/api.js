@@ -28,3 +28,13 @@ export const fetchSingleArticle = (article_id) => {
     return article;
   });
 };
+
+//Get Comments for Article
+export const fetchComments = (article_id) => {
+  return api
+    .get(`/articles/${article_id}/comments`)
+    .then(({ data: { comments } }) => {
+      console.log(comments);
+      return comments;
+    });
+};
