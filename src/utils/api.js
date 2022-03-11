@@ -34,7 +34,6 @@ export const fetchComments = (article_id) => {
   return api
     .get(`/articles/${article_id}/comments`)
     .then(({ data: { comments } }) => {
-      console.log(comments);
       return comments;
     });
 };
@@ -47,3 +46,33 @@ export const updateArticleVote = (article_id, vote) => {
       return article.vote;
     });
 };
+
+
+//Get all users
+export const fetchUsers = () => {
+  return api.get("/users").then(({ data: { users } }) => {
+    console.log(users);
+    return users;
+  });
+};
+
+//Get user by username
+export const fetchSingleUser = (username) => {
+  return api.get(`/users/${username}`).then(({ data: { user } }) => {
+    return user;
+  });
+};
+
+//Post a comment
+export const postComment = (article_id, username, comment) => {
+  console.log("api post:", article_id, username, comment);
+  return api
+    .post(`/articles/${article_id}/comments`, {
+      username: username,
+      body: comment,
+    })
+    .then(({ data: { comment } }) => {
+      return comment;
+    });
+};
+
