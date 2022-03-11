@@ -97,6 +97,7 @@ a {
   font-size: 1.8rem;
   text-transform: capitalize;
   margin-top: 0;
+  margin-bottom: 15px;
   padding-top: 30px;
 }
 
@@ -155,9 +156,32 @@ a {
 .ArticleCard_author {
   font-weight: 500;
 }
-.ArticleCard_topic {
+.ArticleCard_detail {
   font-weight: 500;
   padding-top: 10px;
+}
+
+/* ----- Articles Sort and Order */
+
+.ArticleList_sortOrder_container {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: flex-end;
+  padding-right: 10%;
+  padding-bottom: 15px;
+}
+.ArticleList_sortBy_container,
+.ArticleList_orderBy_container {
+  display: flex;
+  margin-left: 20px;
+  padding-left: 10px;
+  align-items: center;
+}
+.ArticleList_sortOrder_dropdown {
+  margin-left: 10px;
+  font-family: inherit;
+  font-size: 1rem;
+  height: 45px;
 }
 
 /* ---------- Single Article Page ------------- */
@@ -456,6 +480,11 @@ a {
     padding-right: 0;
   }
 
+  /* -------- Articles ------- */
+  .ArticleList_sortOrder_container {
+    flex-wrap: wrap;
+  }
+
   /*  Article Item Cards */
   .ArticlesGrid {
     display: grid;
@@ -463,6 +492,7 @@ a {
     grid-gap: 15px;
     margin-left: 0;
     margin-right: 0;
+    margin-top: 10px;
     padding-left: 0;
   }
   .ArticleCard {
