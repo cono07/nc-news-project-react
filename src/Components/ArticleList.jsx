@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useSearchParams, Link } from "react-router-dom";
 import * as api from "../utils/api";
 import { ArticleItem } from "./ArticleItem";
 
@@ -7,6 +7,9 @@ export const ArticleList = () => {
   const { topic_name } = useParams();
   const [articlesList, setArticlesList] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
+  const [searchParams, setSearchParams] = useSearchParams();
+  console.log(searchParams.get("sort-by"));
 
   useEffect(() => {
     setIsLoading(true);
@@ -24,6 +27,13 @@ export const ArticleList = () => {
         <>
           <main className="ArticleList_main cooking">
             <h1 id="ArticleList_title">{topic_name} Articles</h1>
+            <Link
+              to={`/articles/${
+                topic_name ? topic_name : "all"
+              }?sort-by=created_at`}
+            >
+              Date
+            </Link>
             <section className="ArticlesGrid">
               {articlesList.map((article) => {
                 return (

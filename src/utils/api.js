@@ -13,6 +13,7 @@ export const fetchTopics = () => {
 
 //Get All Articles (inc topic queries params)
 export const fetchArticles = (topic_name) => {
+  console.log(typeof topic_name);
   let str = "/articles";
   if (topic_name && topic_name !== "all") {
     str += `?topic=${topic_name}`;
