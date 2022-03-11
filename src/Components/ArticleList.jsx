@@ -9,15 +9,16 @@ export const ArticleList = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   const [searchParams, setSearchParams] = useSearchParams();
-  console.log(searchParams.get("sort-by"));
+  // console.log(searchParams.get("sort-by"));
+  const sortBy = searchParams.get("sort-by");
 
   useEffect(() => {
     setIsLoading(true);
-    api.fetchArticles(topic_name).then((articles) => {
+    api.fetchArticles(topic_name, sortBy).then((articles) => {
       setArticlesList(articles);
       setIsLoading(false);
     });
-  }, [topic_name]);
+  }, [topic_name, searchParams]);
 
   return (
     <>
@@ -33,6 +34,11 @@ export const ArticleList = () => {
               }?sort-by=created_at`}
             >
               Date
+            </Link>
+            <Link
+              to={`/articles/${topic_name ? topic_name : "all"}?sort-by=votes`}
+            >
+              Votes
             </Link>
             <section className="ArticlesGrid">
               {articlesList.map((article) => {
