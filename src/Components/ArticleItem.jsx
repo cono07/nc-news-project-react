@@ -12,8 +12,11 @@ export const ArticleItem = ({ article }) => {
         <dl>
           <dt className="ArticleCard_author">Author: {article.author}</dt>
           <dt className="ArticleCard_date">{articleDate}</dt>
-          <dt className="ArticleCard_topic">{article.topic}</dt>
-          <div></div>
+          <dt className="ArticleCard_detail">{article.topic}</dt>
+          <dt className="ArticleCard_detail">Votes: {article.votes}</dt>
+          <dt className="ArticleCard_detail">
+            Comments: {article.comment_count}
+          </dt>
         </dl>
       </Link>
     </article>

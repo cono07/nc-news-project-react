@@ -12,16 +12,14 @@ export const fetchTopics = () => {
 };
 
 //Get All Articles (inc topic queries params)
-export const fetchArticles = (topic_name, sortBy) => {
-  console.log("in api:", sortBy);
-  // console.log(typeof topic_name);
-  let str = "/articles";
-  if (topic_name && topic_name !== "all") {
-    str += `?topic=${topic_name}`;
-  }
-  return api.get(str).then(({ data: { articles } }) => {
-    return articles;
-  });
+export const fetchArticles = (topic_name, sortByQuery, orderBy) => {
+  return api
+    .get("/articles", {
+      params: { sort_by: sortByQuery, order: orderBy, topic: topic_name },
+    })
+    .then(({ data: { articles } }) => {
+      return articles;
+    });
 };
 
 //Get Single Article
