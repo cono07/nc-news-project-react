@@ -10,12 +10,7 @@ export const UsersCard = ({ user }) => {
 
   const handleLogIn = () => {
     setLoggedInUser(userCard);
-    // setLoggedInUser();
   };
-
-  //tried to set loggedInUser as the object properties when fetching user by username
-  //was going to then try and set a state to pass into the handleLogIn with setLoggedInUser(currentLoggedIn)
-  //Error about using objects as a react child or something
 
   //loading needed
 
