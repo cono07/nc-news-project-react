@@ -17,6 +17,7 @@ export const CommentsList = ({ article_id }) => {
   }, [article_id, setCommentList]);
   //[article_id] needed in useEffect?
 
+
   return (
     <>
       {isLoading ? (

@@ -1,4 +1,6 @@
-import { useState } from "react";
+
+import { useEffect, useState } from "react";
+
 import { formatDate } from "../utils/formatDate";
 import { CommentsList } from "./CommentsList";
 import * as api from "../utils/api";
@@ -16,7 +18,9 @@ export const SingleArticleItem = ({ article }) => {
     });
   };
 
+
   //CommentsList at the bottom of page
+
 
   return (
     <main className="SingleArticleItem_container">

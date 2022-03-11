@@ -47,6 +47,7 @@ export const updateArticleVote = (article_id, vote) => {
     });
 };
 
+
 //Get all users
 export const fetchUsers = () => {
   return api.get("/users").then(({ data: { users } }) => {
@@ -74,3 +75,4 @@ export const postComment = (article_id, username, comment) => {
       return comment;
     });
 };
+
