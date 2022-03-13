@@ -422,6 +422,10 @@ a {
   background-color: #5f0f40;
 }
 
+.UsersCard_user-image img {
+  max-height: 180px;
+}
+
 /* -------- Profile --------- */
 #Profile_title {
   display: flex;
@@ -593,5 +597,15 @@ a {
   /* ---- Post Comments ------ */
   #PostComment_text-box {
     flex-basis: 100%;
+  }
+
+  /* ------- Users ------ */
+  .Users_container {
+    grid-template-columns: repeat(auto-fill, minmax(50%, 1fr));
+    margin-left: 0;
+    margin-right: 0;
+  }
+  .UsersCard_user-image img {
+    max-height: 120px;
   }
 }

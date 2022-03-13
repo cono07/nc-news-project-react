@@ -14,8 +14,6 @@ export const Users = () => {
     });
   }, []);
 
-  // console.log(usersList);
-
   return (
     <>
       {isLoading ? <h1>Loading users...</h1> : <h1 id="Users_title">Users</h1>}

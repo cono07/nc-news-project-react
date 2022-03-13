@@ -47,7 +47,6 @@ export const updateArticleVote = (article_id, vote) => {
     });
 };
 
-
 //Get all users
 export const fetchUsers = () => {
   return api.get("/users").then(({ data: { users } }) => {
@@ -65,7 +64,6 @@ export const fetchSingleUser = (username) => {
 
 //Post a comment
 export const postComment = (article_id, username, comment) => {
-  console.log("api post:", article_id, username, comment);
   return api
     .post(`/articles/${article_id}/comments`, {
       username: username,
@@ -75,4 +73,3 @@ export const postComment = (article_id, username, comment) => {
       return comment;
     });
 };
-
