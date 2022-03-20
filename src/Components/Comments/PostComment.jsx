@@ -1,8 +1,12 @@
 import { useContext, useState } from "react";
-import * as api from "../utils/api";
-import { UserContext } from "./UserContext";
+import * as api from "../../utils/api";
+import { UserContext } from "../UserContext";
 
-export const PostComment = ({ article_id, setCommentList }) => {
+export const PostComment = ({
+  article_id,
+  setCommentList,
+  setCommentPosted,
+}) => {
   const [body, setBody] = useState("");
   const { loggedInUser } = useContext(UserContext);
   const [error, setError] = useState(null);
@@ -26,6 +30,7 @@ export const PostComment = ({ article_id, setCommentList }) => {
           return [tempPost, ...currentList];
         });
         setUserMsg("Thanks for your comment!");
+        setCommentPosted(true);
       })
       .catch(() => {
         setError("Oops something went wrong. Try and post a comment later.");
@@ -51,7 +56,7 @@ export const PostComment = ({ article_id, setCommentList }) => {
             setBody(event.target.value);
           }}
         ></textarea>
-        <div class="PostComment_button-container">
+        <div className="PostComment_button-container">
           <button type="submit">Post comment</button>
         </div>
       </form>

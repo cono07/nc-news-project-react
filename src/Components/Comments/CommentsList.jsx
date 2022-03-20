@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react";
-import * as api from "../utils/api";
+import * as api from "../../utils/api";
 import { CommentCard } from "./CommentCard";
 import { PostComment } from "./PostComment";
 
 export const CommentsList = ({ article_id }) => {
   const [commentList, setCommentList] = useState();
   const [isLoading, setIsLoading] = useState(true);
+
+  const [commentDeleted, setCommentDeleted] = useState(false);
+  const [commentPosted, setCommentPosted] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
@@ -14,9 +17,9 @@ export const CommentsList = ({ article_id }) => {
       setCommentList(comments);
       setIsLoading(false);
     });
-  }, [article_id, setCommentList]);
+    setCommentDeleted(false);
+  }, [article_id, setCommentList, commentDeleted, commentPosted]);
   //[article_id] needed in useEffect?
-
 
   return (
     <>
@@ -28,9 +31,16 @@ export const CommentsList = ({ article_id }) => {
           <PostComment
             article_id={article_id}
             setCommentList={setCommentList}
+            setCommentPosted={setCommentPosted}
           />
           {commentList.map((comment) => {
-            return <CommentCard key={comment.comment_id} comment={comment} />;
+            return (
+              <CommentCard
+                key={comment.comment_id}
+                comment={comment}
+                setCommentDeleted={setCommentDeleted}
+              />
+            );
           })}
         </>
       )}
