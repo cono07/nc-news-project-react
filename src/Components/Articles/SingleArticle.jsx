@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import * as api from "../utils/api";
+import * as api from "../../utils/api";
 import { SingleArticleItem } from "./SingleArticleItem";
 
 export const SingleArticle = () => {

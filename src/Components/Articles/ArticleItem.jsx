@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { formatDate } from "../utils/formatDate";
+import { formatDate } from "../../utils/formatDate";
 
 export const ArticleItem = ({ article }) => {
   const date = article.created_at;
