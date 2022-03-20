@@ -19,7 +19,6 @@ export const CommentsList = ({ article_id }) => {
     });
     setCommentDeleted(false);
   }, [article_id, setCommentList, commentDeleted, commentPosted]);
-  //[article_id] needed in useEffect?
 
   return (
     <>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { useParams, useSearchParams, Link } from "react-router-dom";
-import * as api from "../utils/api";
+import { useParams } from "react-router-dom";
+import * as api from "../../utils/api";
 import { ArticleItem } from "./ArticleItem";
 
 export const ArticleList = () => {

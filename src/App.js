@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
 import "./App.css";
-import { ArticleList } from "./Components/ArticleList";
+import { ArticleList } from "./Components/Articles/ArticleList";
 import Heading from "./Components/Heading";
-import { SingleArticle } from "./Components/SingleArticle";
+import { SingleArticle } from "./Components/Articles/SingleArticle";
 import { Users } from "./Components/Users";
 import { UserContext } from "./Components/UserContext";
 import { Profile } from "./Components/Profile";

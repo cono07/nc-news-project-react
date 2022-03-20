@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { formatDate } from "../utils/formatDate";
-import { CommentsList } from "./Comments/CommentsList";
-import * as api from "../utils/api";
+import { formatDate } from "../../utils/formatDate";
+import { CommentsList } from "../Comments/CommentsList";
+import * as api from "../../utils/api";
 
 export const SingleArticleItem = ({ article }) => {
   const articleDate = formatDate(article.created_at);
