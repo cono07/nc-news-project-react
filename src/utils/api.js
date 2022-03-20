@@ -73,3 +73,11 @@ export const postComment = (article_id, username, comment) => {
       return comment;
     });
 };
+
+//Delete comment
+export const deleteComment = (commentId) => {
+  return api.delete(`/comments/${commentId}`).then(({ data }) => {
+    // console.log(data);
+    return data;
+  });
+};

@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 import { formatDate } from "../utils/formatDate";
-import { CommentsList } from "./CommentsList";
+import { CommentsList } from "./Comments/CommentsList";
 import * as api from "../utils/api";
 
 export const SingleArticleItem = ({ article }) => {
