@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
-import logo from "../images/NC-News-White-Logo.jpg";
+import logo from "../images/NC-Logo-Transparent.png";
 import { MainNavBar } from "./MainNavBar";
 import TopicsNav from "./TopicsNav";
 
 const Heading = () => {
   return (
-    <>
-      <header className="HeaderContainer">
+    <header>
+      <div className="HeaderContainer">
         <div className="LogoContainer">
           <Link to={"/"}>
             <img id="MainHeader_logo" src={logo} alt="nc news logo"></img>
@@ -15,11 +15,11 @@ const Heading = () => {
         <nav className="MainNavContainer">
           <MainNavBar />
         </nav>
-      </header>
+      </div>
       <nav className="TopicsNavContainer">
         <TopicsNav />
       </nav>
-    </>
+    </header>
   );
 };
 
