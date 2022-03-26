@@ -6,19 +6,15 @@ import { PostComment } from "./PostComment";
 export const CommentsList = ({ article_id }) => {
   const [commentList, setCommentList] = useState();
   const [isLoading, setIsLoading] = useState(true);
-
-  const [commentDeleted, setCommentDeleted] = useState(false);
   const [commentPosted, setCommentPosted] = useState(false);
 
   useEffect(() => {
     setIsLoading(true);
-
     api.fetchComments(article_id).then((comments) => {
       setCommentList(comments);
       setIsLoading(false);
     });
-    setCommentDeleted(false);
-  }, [article_id, setCommentList, commentDeleted, commentPosted]);
+  }, [commentPosted]);
 
   return (
     <>
@@ -35,9 +31,14 @@ export const CommentsList = ({ article_id }) => {
           {commentList.map((comment) => {
             return (
               <CommentCard
+                setCommentList={setCommentList}
                 key={comment.comment_id}
-                comment={comment}
-                setCommentDeleted={setCommentDeleted}
+                commentId={comment.comment_id}
+                created_at={comment.created_at}
+                author={comment.author}
+                body={comment.body}
+                votes={comment.votes}
+                article_id={article_id}
               />
             );
           })}
