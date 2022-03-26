@@ -14,7 +14,7 @@ export const CommentsList = ({ article_id }) => {
       setCommentList(comments);
       setIsLoading(false);
     });
-  }, [commentPosted]);
+  }, [commentPosted, article_id]);
 
   return (
     <>
@@ -38,6 +38,7 @@ export const CommentsList = ({ article_id }) => {
                 author={comment.author}
                 body={comment.body}
                 votes={comment.votes}
+                comment={comment}
                 article_id={article_id}
               />
             );
