@@ -12,34 +12,24 @@ export const PostComment = ({
   const [error, setError] = useState(null);
   const [userMsg, setUserMsg] = useState(null);
 
-  const date = new Date(Date("UTC"));
-
   const handleSubmit = (event) => {
     event.preventDefault();
-    let tempPost = {};
+    setUserMsg("Posting...");
     api
       .postComment(article_id, loggedInUser.username, body)
-      .then(() => {
-        tempPost = {
-          author: loggedInUser.username,
-          created_at: date,
-          votes: 0,
-          body: body,
-        };
-        setCommentList((currentList) => {
-          return [tempPost, ...currentList];
+      .then((newComment) => {
+        setCommentList((currComments) => {
+          return [newComment, ...currComments];
         });
         setUserMsg("Thanks for your comment!");
         setCommentPosted(true);
       })
       .catch(() => {
-        setError("Oops something went wrong. Try and post a comment later.");
-        tempPost = {};
-        setCommentList((currentList) => {
-          return [...currentList];
-        });
+        setError("Oops something went wong. Try and post a comment later.");
       });
+
     setBody("");
+    setCommentPosted(false);
   };
 
   return (
