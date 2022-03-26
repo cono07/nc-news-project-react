@@ -3,17 +3,29 @@ import { formatDate } from "../../utils/formatDate";
 import { UserContext } from "../UserContext";
 import * as api from "../../utils/api";
 
-export const CommentCard = ({ comment, setCommentDeleted }) => {
-  const commentDate = formatDate(comment.created_at);
+export const CommentCard = ({
+  author,
+  body,
+  votes,
+  commentId,
+  created_at,
+  setCommentList,
+  article_id,
+}) => {
+  const commentDate = formatDate(created_at);
   const { loggedInUser } = useContext(UserContext);
   const [deleteMsg, setDeleteMsg] = useState(null);
 
   const handleDelete = () => {
     setDeleteMsg("deleting message...");
-    api.deleteComment(comment.comment_id).then(() => {
-      setCommentDeleted(true);
-      setDeleteMsg(null);
-    });
+    api
+      .deleteComment(commentId)
+      .then(() => {
+        return api.fetchComments(article_id).then(setCommentList);
+      })
+      .then(() => {
+        setDeleteMsg(null);
+      });
   };
 
   return (
@@ -26,7 +38,7 @@ export const CommentCard = ({ comment, setCommentDeleted }) => {
             <div className="comment-author-block">
               <dl>
                 <dt>Author: </dt>
-                <dt>{comment.author}</dt>
+                <dt>{author}</dt>
               </dl>
             </div>
             <div className="comment-date-block">
@@ -37,15 +49,15 @@ export const CommentCard = ({ comment, setCommentDeleted }) => {
             </div>
           </div>
           <div className="CommentCard_block-two">
-            <p>{comment.body}</p>
+            <p>{body}</p>
           </div>
           <div className="CommentCard_block-three">
             <dl>
               <dt>Votes: </dt>
-              <dt>{comment.votes}</dt>
+              <dt>{votes}</dt>
             </dl>
             {/* only show delete button if comment has id and author is logged in user. Forces refresh to delete comment */}
-            {loggedInUser.username === comment.author && comment.comment_id && (
+            {loggedInUser.username === author && commentId && (
               <button
                 onClick={() => {
                   handleDelete();
