@@ -31,26 +31,21 @@ export const fetchSingleArticle = (article_id) => {
 
 //Get Comments for Article
 export const fetchComments = (article_id) => {
-  return api
-    .get(`/articles/${article_id}/comments`)
-    .then(({ data: { comments } }) => {
-      return comments;
-    });
+  return api.get(`/articles/${article_id}/comments`).then(({ data: { comments } }) => {
+    return comments;
+  });
 };
 
 //Update vote of article
 export const updateArticleVote = (article_id, vote) => {
-  return api
-    .patch(`articles/${article_id}`, { inc_votes: vote })
-    .then(({ data: { article } }) => {
-      return article.vote;
-    });
+  return api.patch(`articles/${article_id}`, { inc_votes: vote }).then(({ data: { article } }) => {
+    return article.vote;
+  });
 };
 
 //Get all users
 export const fetchUsers = () => {
   return api.get("/users").then(({ data: { users } }) => {
-    console.log(users);
     return users;
   });
 };
@@ -77,7 +72,6 @@ export const postComment = (article_id, username, comment) => {
 //Delete comment
 export const deleteComment = (commentId) => {
   return api.delete(`/comments/${commentId}`).then(({ data }) => {
-    // console.log(data);
     return data;
   });
 };

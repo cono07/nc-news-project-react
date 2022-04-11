@@ -9,12 +9,9 @@ import { UserContext } from "./Components/UserContext";
 import { Profile } from "./Components/Profile";
 
 function App() {
-  //tried to set as an object with username. avatar, name
-  //eg: useState({username: 'grumpy19', avatar_url: 'url...', name: 'dave'})
   const [loggedInUser, setLoggedInUser] = useState({
     username: "grumpy19",
-    avatar_url:
-      "https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013",
+    avatar_url: "https://vignette.wikia.nocookie.net/mrmen/images/7/78/Mr-Grumpy-3A.PNG/revision/latest?cb=20170707233013",
     name: "Paul Grump",
   });
 
