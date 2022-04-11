@@ -1,31 +1,32 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { formatDate } from "../../utils/formatDate";
 import { UserContext } from "../UserContext";
 import * as api from "../../utils/api";
 
-export const CommentCard = ({
-  author,
-  body,
-  votes,
-  commentId,
-  created_at,
-  setCommentList,
-  article_id,
-}) => {
+export const CommentCard = ({ author, body, votes, commentId, created_at, setCommentList, article_id }) => {
   const commentDate = formatDate(created_at);
   const { loggedInUser } = useContext(UserContext);
   const [deleteMsg, setDeleteMsg] = useState(null);
+  const isMounted = useRef(true);
+
+  useEffect(() => {
+    return () => {
+      isMounted.current = false;
+    };
+  }, []);
 
   const handleDelete = () => {
-    setDeleteMsg("deleting message...");
-    api
-      .deleteComment(commentId)
-      .then(() => {
-        return api.fetchComments(article_id).then(setCommentList);
-      })
-      .then(() => {
-        setDeleteMsg(null);
-      });
+    if (isMounted.current) {
+      setDeleteMsg("deleting message...");
+      api
+        .deleteComment(commentId)
+        .then(() => {
+          return api.fetchComments(article_id).then(setCommentList);
+        })
+        .then(() => {
+          setDeleteMsg(null);
+        });
+    }
   };
 
   return (
@@ -33,7 +34,7 @@ export const CommentCard = ({
       {deleteMsg ? (
         <h3>Deleting comment...</h3>
       ) : (
-        <article className="CommentCard_container">
+        <article key={commentId} className="CommentCard_container">
           <div className="CommentCard_block-one">
             <div className="comment-author-block">
               <dl>
@@ -59,6 +60,7 @@ export const CommentCard = ({
             {/* only show delete button if comment has id and author is logged in user. Forces refresh to delete comment */}
             {loggedInUser.username === author && commentId && (
               <button
+                className="CommentCard_deleteButton"
                 onClick={() => {
                   handleDelete();
                 }}
