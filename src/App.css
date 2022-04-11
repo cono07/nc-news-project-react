@@ -276,13 +276,18 @@ header {
   flex-wrap: nowrap;
   min-width: 15%;
   border-right: rgba(0, 0, 0, 0.2) solid 1px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: #d1d1d1;
+  color: #000;
 }
 .CommentCard_block-two {
   display: flex;
-  min-width: 64%;
-  border-right: rgba(0, 0, 0, 0.2) solid 1px;
+  width: 65%;
   padding-left: 15px;
   padding-right: 15px;
+  border: 1px solid #d1d1d1;
+  border-radius: 5px;
 }
 .comment-author-block {
   display: flex;
@@ -315,6 +320,25 @@ header {
 .CommentCard_block-three dt {
   flex-wrap: wrap;
   flex-basis: 100%;
+}
+
+.CommentCard_deleteButton {
+  height: 45px;
+  width: fit-content;
+  background-color: #5f0f41f0;
+  color: #fff;
+  font-size: 1rem;
+  font-family: inherit;
+  border-radius: 6px;
+  border: solid 1px #f4f4f4;
+  cursor: pointer;
+}
+.CommentCard_deleteButton:hover {
+  background-color: #fff;
+  color: #5f0f40;
+  cursor: pointer;
+  font-weight: 500;
+  border: #5f0f40 2px solid;
 }
 
 /* ------ Post Comment -------- */
@@ -467,6 +491,19 @@ header {
 
 /* ----------------- Media Queries ------------------------------ */
 
+@media only screen and (min-device-width: 600px) and (max-device-width: 1200px) {
+  .CommentCard_container {
+    flex-basis: 100%;
+
+    flex-wrap: wrap;
+  }
+
+  .CommentCard_block-one {
+    max-width: 50%;
+    flex-wrap: nowrap;
+  }
+}
+
 @media only screen and (max-width: 600px) {
   #MainHeader_logo {
     width: 160px;
@@ -562,20 +599,21 @@ header {
     border: none;
     flex-wrap: wrap;
     flex-direction: row;
-    flex-basis: 95%;
+    flex-basis: 100%;
   }
   .CommentCard_block-two {
-    order: 3;
-    min-width: 100%;
-    border-top: rgba(0, 0, 0, 0.2) solid 1px;
-    border-right: none;
+    order: 2;
+    width: 100%;
+    border: rgba(0, 0, 0, 0.2) solid 1px;
+    /* border-right: none; */
     flex-direction: row;
-    padding-left: 0;
-    padding-right: 0;
+    padding-left: 5px;
+    padding-right: 5px;
     padding-bottom: 15px;
+    margin-top: 5px;
   }
   .CommentCard_block-three {
-    order: 2;
+    order: 3;
     min-width: 100%;
     flex-direction: row;
     padding: 0;
@@ -584,7 +622,8 @@ header {
   .comment-author-block,
   .comment-date-block {
     flex-wrap: wrap;
-    flex-basis: 40%;
+    flex-basis: 45%;
+    padding-left: 5%;
   }
 
   /* --- Profile page ------ */
@@ -625,5 +664,25 @@ header {
     border: 1px #a7a7a7 solid;
     color: #000000;
     background-color: #ffffff;
+  }
+}
+
+@media only screen and (max-width: 1200px) and (min-width: 601px) {
+  .CommentCard_block-one {
+    order: 1;
+    min-width: 45%;
+  }
+  .CommentCard_block-three {
+    order: 2;
+    min-width: 40%;
+  }
+  .CommentCard_block-two {
+    order: 3;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    min-width: 95%;
+  }
+  .CommentCard_block-three dt {
+    text-align: center;
   }
 }
