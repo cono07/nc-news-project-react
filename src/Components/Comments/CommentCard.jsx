@@ -34,7 +34,7 @@ export const CommentCard = ({ author, body, votes, commentId, created_at, setCom
       {deleteMsg ? (
         <h3>Deleting comment...</h3>
       ) : (
-        <article key={commentId} className="CommentCard_container">
+        <article className="CommentCard_container">
           <div className="CommentCard_block-one">
             <div className="comment-author-block">
               <dl>
