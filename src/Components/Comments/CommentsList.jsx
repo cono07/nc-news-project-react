@@ -9,7 +9,6 @@ export const CommentsList = ({ article_id }) => {
   const [commentPosted, setCommentPosted] = useState(false);
 
   useEffect(() => {
-    setIsLoading(true);
     api.fetchComments(article_id).then((comments) => {
       setCommentList(comments);
       setIsLoading(false);
@@ -23,16 +22,12 @@ export const CommentsList = ({ article_id }) => {
       ) : (
         <>
           <h3>Comments</h3>
-          <PostComment
-            article_id={article_id}
-            setCommentList={setCommentList}
-            setCommentPosted={setCommentPosted}
-          />
-          {commentList.map((comment) => {
+          <PostComment article_id={article_id} setCommentList={setCommentList} setCommentPosted={setCommentPosted} />
+          {commentList.map((comment, index) => {
             return (
               <CommentCard
+                key={index}
                 setCommentList={setCommentList}
-                key={comment.comment_id}
                 commentId={comment.comment_id}
                 created_at={comment.created_at}
                 author={comment.author}
