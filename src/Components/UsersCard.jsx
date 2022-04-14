@@ -12,6 +12,7 @@ export const UsersCard = ({ user }) => {
 
   let navigate = useNavigate();
   const routeChange = () => {
+    //added timer to pause on screen to show button change to 'logged in'
     setTimeout(() => {
       let path = `/articles`;
       navigate(path);
