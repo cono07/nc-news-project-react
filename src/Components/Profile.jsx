@@ -10,10 +10,18 @@ export const Profile = () => {
       <div id="Profile_card-container">
         <img src={loggedInUser.avatar_url} alt={loggedInUser.name}></img>
         <dl>
-          <dt>Username: {loggedInUser.username}</dt>
-          <dt>Name: {loggedInUser.name}</dt>
-          <dt>Articles: 12</dt>
-          <dt>Comments: 24</dt>
+          <dt>
+            <strong>Username:</strong> {loggedInUser.username}
+          </dt>
+          <dt>
+            <strong>Name:</strong> {loggedInUser.name}
+          </dt>
+          <dt>
+            <strong>Articles Posted:</strong> 12
+          </dt>
+          <dt>
+            <strong>Comments:</strong> 24
+          </dt>
         </dl>
       </div>
     </main>
