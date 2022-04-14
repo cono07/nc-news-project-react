@@ -1,15 +1,27 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "./UserContext";
 import * as api from "../utils/api";
+import { useNavigate } from "react-router-dom";
 
 export const UsersCard = ({ user }) => {
   const { setLoggedInUser } = useContext(UserContext);
 
   const [userCard, setUserCard] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  let navigate = useNavigate();
+  const routeChange = () => {
+    setTimeout(() => {
+      let path = `/articles`;
+      navigate(path);
+    }, 1200);
+  };
 
   const handleLogIn = () => {
-    setLoggedInUser(userCard);
+    Promise.all([setLoggedInUser(userCard), setIsLoggedIn(true)]).then(() => {
+      routeChange();
+    });
   };
 
   useEffect(() => {
@@ -33,7 +45,9 @@ export const UsersCard = ({ user }) => {
             <h2>{userCard.username}</h2>
           </div>
           <div className="UsersCard_button">
-            <button onClick={handleLogIn}>Log In</button>
+            <button disabled={isLoggedIn} onClick={handleLogIn}>
+              {isLoggedIn ? <>Logged In</> : <>Login</>}
+            </button>
           </div>
         </article>
       )}
