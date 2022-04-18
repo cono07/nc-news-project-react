@@ -184,6 +184,18 @@ header {
   padding-top: 10px;
 }
 
+.ArticleCard_comments {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.comments-icon {
+  max-width: 20px;
+  margin-top: 10px;
+  margin-right: 10px;
+}
+
 /* ----- Articles Sort and Order */
 
 .ArticleList_sortOrder_container {
