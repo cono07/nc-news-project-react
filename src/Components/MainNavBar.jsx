@@ -7,11 +7,11 @@ export const MainNavBar = () => {
 
   return (
     <>
-      <Link to={"/users"} className="MainNav__link">
+      <Link to={"/users"} className="MainNav__link navLinkUsers">
         Users
       </Link>
-      <Link to={"/profile"} className="MainNav__link">
-        Profile | <strong>{loggedInUser.username}</strong>
+      <Link to={"/profile"} className="MainNav__link navLinkProfile">
+        Profile | {loggedInUser.username}
       </Link>
     </>
   );

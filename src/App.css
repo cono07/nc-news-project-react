@@ -28,6 +28,16 @@ a {
 .Toastify__toast-body {
   text-align: center;
   font-family: "Fredoka", sans-serif;
+  white-space: pre-line;
+}
+
+.Navbar_profileImg {
+  display: flex;
+
+  justify-content: center;
+  align-items: center;
+
+  max-height: 25px;
 }
 
 /* ----- Header ----- */
@@ -409,7 +419,7 @@ header {
 }
 /* ------- Users -------- */
 
-.Users_loading {
+.loading {
   margin-left: 5%;
   font-size: 1.5rem;
 }
