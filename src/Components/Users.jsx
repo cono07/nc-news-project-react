@@ -25,7 +25,7 @@ export const Users = () => {
   return (
     <>
       {isLoading ? (
-        <h1 className="Users_loading">
+        <h1 className="loading">
           Loading users...
           <PulseLoader color={"#751046"} loading={isLoading} size={15} css={override} />
         </h1>

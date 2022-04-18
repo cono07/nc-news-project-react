@@ -5,6 +5,8 @@ import { ArticleItem } from "./ArticleItem";
 import { UserContext } from "../UserContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { css } from "@emotion/react";
+import PulseLoader from "react-spinners/PulseLoader";
 
 export const ArticleList = () => {
   const { loggedInUser } = useContext(UserContext);
@@ -22,6 +24,12 @@ export const ArticleList = () => {
     setOrderBy(event.target.value);
   };
 
+  const override = css`
+    display: inline;
+    margin-left: 70px;
+    margin-top: 5px;
+  `;
+
   useEffect(() => {
     setIsLoading(true);
     api.fetchArticles(topic_name, sortByQuery, orderBy).then((articles) => {
@@ -31,21 +39,27 @@ export const ArticleList = () => {
   }, [topic_name, sortByQuery, orderBy]);
 
   useEffect(() => {
-    toast(`👋 Welcome ${loggedInUser.username}!`, {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    });
+    toast(
+      `👋 Hi ${loggedInUser.username}! 
+    Check out the latest news...`,
+      {
+        position: "top-center",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      }
+    );
   }, [loggedInUser]);
 
   return (
     <>
       {isLoading ? (
-        <h2 id="ArticleList_loading">Loading Articles....</h2>
+        <h2 id="ArticleList_loading">
+          Loading Articles.... <PulseLoader color={"#751046"} loading={isLoading} size={15} css={override} />
+        </h2>
       ) : (
         <>
           <ToastContainer
