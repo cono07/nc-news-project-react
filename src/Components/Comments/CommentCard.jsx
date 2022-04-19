@@ -53,10 +53,6 @@ export const CommentCard = ({ author, body, votes, commentId, created_at, setCom
             <p>{body}</p>
           </div>
           <div className="CommentCard_block-three">
-            <dl>
-              <dt>Votes: </dt>
-              <dt>{votes}</dt>
-            </dl>
             {/* only show delete button if comment has id and author is logged in user. Forces refresh to delete comment */}
             {loggedInUser.username === author && commentId && (
               <button
