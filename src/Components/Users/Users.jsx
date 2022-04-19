@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import * as api from "../utils/api";
+import * as api from "../../utils/api";
 import { UsersCard } from "./UsersCard";
 import { css } from "@emotion/react";
 import PulseLoader from "react-spinners/PulseLoader";

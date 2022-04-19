@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import logo from "../images/NC-Logo-Transparent.png";
+import logo from "../../images/NC-Logo-Transparent.png";
 import { MainNavBar } from "./MainNavBar";
 import TopicsNav from "./TopicsNav";
 
