@@ -24,6 +24,37 @@ a {
   text-transform: capitalize;
 }
 
+.ErrorsPage_main {
+  height: 100vh;
+  background-image: url("./images/lost-page-background.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #fff;
+  text-align: center;
+}
+.ErrorsPage_main h1 {
+  margin-top: 0;
+  padding-top: 100px;
+  margin-bottom: 20px;
+  font-size: 9em;
+}
+
+.ErrorsPage_homeLink {
+  background-color: rgb(95, 94, 94);
+  color: #fff;
+  padding: 10px 10px;
+  font-size: 1.6em;
+  border-radius: 5px;
+}
+.ErrorsPage_homeLink:hover {
+  background-color: #5f0f40;
+  color: #fff;
+}
+
+.ErrorsPage_home_container {
+  margin-top: 30px;
+}
+
 /* Toast on welcome */
 .Toastify__toast-body {
   text-align: center;
@@ -701,6 +732,14 @@ header {
   }
   .UsersCard_user-image img {
     max-height: 90px;
+  }
+
+  /* Errors */
+  .ErrorsPage_main h1 {
+    margin-top: 0;
+    padding-top: 70px;
+    margin-bottom: 20px;
+    font-size: 7em;
   }
 }
 
