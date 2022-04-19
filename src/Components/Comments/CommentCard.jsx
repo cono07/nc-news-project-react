@@ -1,6 +1,6 @@
 import { useContext, useEffect, useRef, useState } from "react";
 import { formatDate } from "../../utils/formatDate";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../../Contexts/UserContext";
 import * as api from "../../utils/api";
 
 export const CommentCard = ({ author, body, votes, commentId, created_at, setCommentList, article_id }) => {

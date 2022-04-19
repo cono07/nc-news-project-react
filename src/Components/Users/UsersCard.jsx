@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
-import { UserContext } from "./UserContext";
-import * as api from "../utils/api";
+import { UserContext } from "../../Contexts/UserContext";
+import * as api from "../../utils/api";
 import { useNavigate } from "react-router-dom";
 
 export const UsersCard = ({ user }) => {

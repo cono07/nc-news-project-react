@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useParams } from "react-router-dom";
 import * as api from "../../utils/api";
 import { ArticleItem } from "./ArticleItem";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../../Contexts/UserContext";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { css } from "@emotion/react";

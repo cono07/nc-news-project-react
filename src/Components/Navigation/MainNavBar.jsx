@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "./UserContext";
+import { UserContext } from "../../Contexts/UserContext";
 
 export const MainNavBar = () => {
   const { loggedInUser } = useContext(UserContext);
