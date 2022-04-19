@@ -7,6 +7,7 @@ import { SingleArticle } from "./Components/Articles/SingleArticle";
 import { Users } from "./Components/Users";
 import { UserContext } from "./Components/UserContext";
 import { Profile } from "./Components/Profile";
+import ErrorsPage from "./Components/ErrorsPage";
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({
@@ -20,7 +21,7 @@ function App() {
       <UserContext.Provider value={{ loggedInUser, setLoggedInUser }}>
         <Heading />
         <Routes>
-          <Route path="*" />
+          <Route path="*" element={<ErrorsPage />} />
           <Route path="/" element={<ArticleList />} />
           <Route path="/articles" element={<ArticleList />} />
           <Route path="/articles/:topic_name" element={<ArticleList />} />

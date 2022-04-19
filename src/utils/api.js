@@ -24,9 +24,16 @@ export const fetchArticles = (topic_name, sortByQuery, orderBy) => {
 
 //Get Single Article
 export const fetchSingleArticle = (article_id) => {
-  return api.get(`/articles/${article_id}`).then(({ data: { article } }) => {
-    return article;
-  });
+  return api
+    .get(`/articles/${article_id}`)
+    .then((res) => {
+      return res;
+    })
+    .catch((err) => {
+      if (err.response) {
+        return Promise.reject(err);
+      }
+    });
 };
 
 //Get Comments for Article
